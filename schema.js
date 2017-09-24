@@ -47,9 +47,7 @@ const RootQuery = new GraphQLObjectType({
       },
       // what to do when endpoint is called
       resolve(parentValue, args) {
-        return axios
-          .get(`${BASE_URL}/customers/` + args.id)
-          .then(res => res.data);
+        return axios.get(`${BASE_URL}/customers/` + args.id).then(res => res.data);
       }
     },
     // GET all customers (list)
@@ -111,9 +109,7 @@ const mutation = new GraphQLObjectType({
         age: { type: GraphQLInt }
       },
       resolve(parentValue, args) {
-        return axios
-          .patch(`${BASE_URL}/customers/` + args.id, args)
-          .then(res => res.data);
+        return axios.patch(`${BASE_URL}/customers/` + args.id, args).then(res => res.data);
       }
     }
   }
